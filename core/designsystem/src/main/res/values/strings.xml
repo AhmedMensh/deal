@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="place_holder">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email Address</string>
+    <string name="enter_your_email">Enter your email address</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="first_name">First Name</string>
+    <string name="enter_first_name">Enter your first name</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_last_name">Enter your last name</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+
+</resources>

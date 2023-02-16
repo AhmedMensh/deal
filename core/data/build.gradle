@@ -1,0 +1,23 @@
+plugins {
+    id 'kotlin-kapt'
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id "kotlinx-serialization"
+}
+
+android {
+    compileSdk 33
+    namespace 'com.example.data'
+
+}
+
+dependencies {
+
+    implementation(project(":core:network"))
+    implementation(project(":core:model"))
+    implementation libs.hilt.android
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.kotlinx.serialization.json
+    kapt libs.hilt.compiler
+}

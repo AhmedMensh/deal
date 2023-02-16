@@ -1,0 +1,76 @@
+[versions]
+# Define the dependency versions
+androidGradlePlugin = "7.3.1"
+kotlin = "1.7.20"
+compose = "1.3.1" #1.4.0-alpha05
+compose-material3 = "1.0.1" #1.4.0-alpha05
+junit-version = "4.13.2"
+android-junit-version = "1.1.4"
+espresso = "3.5.0"
+androidx-core = "1.9.0"
+androidx-lifecycle = "2.5.1"
+androidx-activity = "1.6.1"
+kotlinxCoroutines = "1.6.4"
+kotlinxDatetime = "0.4.0"
+kotlinxSerializationJson = "1.4.0"
+accompanistPager= "0.22.0-rc"
+okhttp = "4.10.0"
+retrofit = "2.9.0"
+moshi = "2.9.0"
+retrofitKotlinxSerializationJson = "0.8.0"
+hilt = "2.44"
+hiltExt = "1.0.0"
+androidxHiltNavigationCompose = "1.0.0"
+compose-navigation = "2.5.3"
+
+[libraries]
+# Define the libraries
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
+compose-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+
+espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+
+junit = { module = "junit:junit", version.ref = "junit-version" }
+android-junit = { module = "androidx.test.ext:junit", version.ref = "android.junit.version" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+
+
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshi" }
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanistPager" }
+
+[bundles]
+# Define bundles/groups of libraries
+compose = ["compose.ui", "compose.material","compose.material3", "compose.tooling", "compose.icons"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
