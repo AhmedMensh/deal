@@ -21,7 +21,7 @@ import com.example.splash.SplashRoute
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    startDestination: String = SplashDestination.route()
+    startDestination: String = HomeDestination.route()
 ) {
     NavHost(
         navController = navController,
