@@ -4,7 +4,6 @@ class UserManger(val logger: Logger) {
     val users = mutableListOf<User>()
     fun addUser(user: User) {
         users.add(user)
-        logger.log("User added: ${user.name}")
     }
 
 }
