@@ -1,7 +1,10 @@
 package com.example.coroutine
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -23,16 +26,18 @@ import org.junit.runners.model.Statement
 @OptIn(ExperimentalCoroutinesApi::class)
 class ProfileViewModelTest {
 
-//    @Before
+    //    @Before
 //    fun setUp() {
 //        Dispatchers.setMain(StandardTestDispatcher())
 //    }
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 
     @Test
-    fun `test success scenario`() = runTest {
+    fun `test success with flow scenario`() = runTest {
 
         val useCase: GetUserProfileUseCase = mockk()
         coEvery { useCase.getProfileDataAsync() } coAnswers { TestUtils.profileDummyData }
@@ -44,6 +49,24 @@ class ProfileViewModelTest {
     }
 
 
+    @Test
+    fun `test success with live data scenario`() = runTest {
+
+        val useCase: GetUserProfileUseCase = mockk()
+        coEvery { useCase.getProfileDataAsync() } coAnswers { TestUtils.profileDummyData }
+        val viewModel = ProfileViewModel(useCase)
+
+        val observer: Observer<ProfileUIState> = mockk(relaxed = true)
+        viewModel.uiStateLiveData.observeForever(observer)
+
+        viewModel.getUserProfile()
+        advanceUntilIdle()
+        verify { observer.onChanged(ProfileUIState.Success(TestUtils.profileDummyData)) }
+
+        viewModel.uiStateLiveData.removeObserver(observer)
+//
+//        assertEquals(ProfileUIState.Success(TestUtils.profileDummyData), viewModel.uiState.value)
+    }
 
 
     @Test
@@ -64,7 +87,8 @@ class ProfileViewModelTest {
 //    }
 }
 
-class MainDispatcherRule(val testDispatcher : TestDispatcher = StandardTestDispatcher()) : TestWatcher() {
+class MainDispatcherRule(val testDispatcher: TestDispatcher = StandardTestDispatcher()) :
+    TestWatcher() {
 
 
     override fun starting(description: Description?) {

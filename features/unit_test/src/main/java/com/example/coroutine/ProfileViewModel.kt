@@ -1,5 +1,7 @@
 package com.example.coroutine
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,6 +14,12 @@ class ProfileViewModel(
 
     private val _uiState = MutableStateFlow<ProfileUIState>(ProfileUIState.Idle)
     val uiState = _uiState.asStateFlow()
+
+
+
+    private val _uiStateLiveData = MutableLiveData<ProfileUIState>()
+    val uiStateLiveData : LiveData<ProfileUIState> = _uiStateLiveData
+
     init {
         getUserProfile()
     }
@@ -23,8 +31,10 @@ class ProfileViewModel(
                 profileUseCase.getProfileDataAsync()
             }.onSuccess {
                 _uiState.value = ProfileUIState.Success(it)
+                _uiStateLiveData.value =ProfileUIState.Success(it)
             }.onFailure {
                 _uiState.value = ProfileUIState.Error(it.message.orEmpty())
+                _uiStateLiveData.value = ProfileUIState.Error(it.message.orEmpty())
 
             }
         }
