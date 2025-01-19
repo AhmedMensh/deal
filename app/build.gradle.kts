@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.example.moudleapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.moudleapp"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -42,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0-alpha01"
+        kotlinCompilerExtensionVersion = "1.5.0"
     }
     packagingOptions {
         resources {

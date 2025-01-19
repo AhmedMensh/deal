@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.example.network"
-    compileSdk = 33
+    compileSdk = 34
 
     buildTypes {
         release {

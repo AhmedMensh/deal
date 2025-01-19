@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import com.example.my_soothe.MySootheApp
 
 @Composable
 fun HomeRoute() {
@@ -38,17 +39,7 @@ fun HomeRoute() {
 
 @Composable
 fun HomeScreen() {
-
-    var contact = Contact(listOf("Mensh"))
-    var selected by remember { mutableStateOf(false) }
-
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        ContactDetails(contact)
-        Checkbox(selected, onCheckedChange = {
-            selected = it
-        })
-
-    }
+    MySootheApp()
 }
 @Immutable
 @Stable

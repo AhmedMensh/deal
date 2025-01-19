@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.example.designsystem"
-    compileSdk = 32
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 32
+        targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,7 +35,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0-alpha01"
+        kotlinCompilerExtensionVersion = "1.5.0"
     }
 }
 

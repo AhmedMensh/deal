@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.example.splash"
-    compileSdk = 32
+    compileSdk = 34
 
 
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0-alpha01"
+        kotlinCompilerExtensionVersion = "1.5.0"
     }
 }
 
