@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 
 
 rootProject.name = "Deal"
-enableFeaturePreview("VERSION_CATALOGS")
+//enableFeaturePreview("VERSION_CATALOGS")
 include (":app")
 include (":core")
 include (":core:data")

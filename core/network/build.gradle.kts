@@ -15,6 +15,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            android.buildFeatures.buildConfig = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -22,16 +23,24 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                gradleLocalProperties(rootDir).getProperty("base_url")
+                gradleLocalProperties(rootDir,providers).getProperty("base_url")
             )
         }
         debug {
+            android.buildFeatures.buildConfig = true
             buildConfigField(
                 "String",
                 "BASE_URL",
-                gradleLocalProperties(rootDir).getProperty("base_url")
+                gradleLocalProperties(rootDir,providers).getProperty("base_url")
             )
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
 }
