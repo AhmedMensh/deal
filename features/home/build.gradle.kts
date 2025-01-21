@@ -24,5 +24,9 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.lifecycle)
     implementation(libs.bundles.compose)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
 }

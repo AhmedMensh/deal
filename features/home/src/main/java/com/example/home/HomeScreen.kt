@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.example.my_soothe.MySootheApp
+import com.example.wellness.WellnessScreen
 
 @Composable
 fun HomeRoute() {
@@ -39,7 +40,8 @@ fun HomeRoute() {
 
 @Composable
 fun HomeScreen() {
-    MySootheApp()
+//    MySootheApp()
+    WellnessScreen()
 }
 @Immutable
 @Stable
